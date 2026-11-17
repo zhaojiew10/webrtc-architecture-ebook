@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">WebRTC 媒体处理与质量反馈环路</title>
+  <desc id="desc">发送端采集、编码并以 SRTP 发送媒体，接收端经过抖动缓冲、解码和渲染播放。RTCP 报告与网络反馈帮助发送端估计可用带宽并调整编码。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#385170"/></marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7a6aa8"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#385170;stroke-width:2}.network{fill:#edf4f3;stroke:#279b83;stroke-width:2.5}.control{fill:#f3f0f8;stroke:#7a6aa8;stroke-width:2}.label{font:600 22px 'Segoe UI','Microsoft YaHei',sans-serif;fill:#26344d}.text{font:19px 'Segoe UI','Microsoft YaHei',sans-serif;fill:#43516a}.small{font:17px 'Segoe UI','Microsoft YaHei',sans-serif;fill:#526078}.flow{fill:none;stroke:#385170;stroke-width:2.7;marker-end:url(#arrow)}.feedback{fill:none;stroke:#7a6aa8;stroke-width:2.7;stroke-dasharray:8 6;marker-end:url(#arrow-purple)}
+    </style>
+  </defs>
+  <rect width="1200" height="650" fill="#fff"/>
+  <text x="600" y="46" text-anchor="middle" class="label" font-size="30">媒体处理与质量反馈环路</text>
+  <text x="188" y="96" text-anchor="middle" class="label">发送端</text>
+  <text x="1012" y="96" text-anchor="middle" class="label">接收端</text>
+
+  <rect x="40" y="200" width="150" height="90" rx="14" class="box"/>
+  <rect x="225" y="200" width="150" height="90" rx="14" class="box"/>
+  <rect x="410" y="200" width="150" height="90" rx="14" class="box"/>
+  <rect x="640" y="200" width="150" height="90" rx="14" class="box"/>
+  <rect x="825" y="200" width="150" height="90" rx="14" class="box"/>
+  <rect x="1010" y="200" width="150" height="90" rx="14" class="box"/>
+  <text x="115" y="238" text-anchor="middle" class="label">采集</text><text x="115" y="267" text-anchor="middle" class="small">摄像头 / 麦克风</text>
+  <text x="300" y="238" text-anchor="middle" class="label">编码</text><text x="300" y="267" text-anchor="middle" class="small">码率 / 分辨率 / 帧率</text>
+  <text x="485" y="238" text-anchor="middle" class="label">打包发送</text><text x="485" y="267" text-anchor="middle" class="small">RTP → SRTP</text>
+  <text x="715" y="238" text-anchor="middle" class="label">抖动缓冲</text><text x="715" y="267" text-anchor="middle" class="small">重排 / 丢包补偿</text>
+  <text x="900" y="238" text-anchor="middle" class="label">解码</text><text x="900" y="267" text-anchor="middle" class="small">恢复音频 / 视频</text>
+  <text x="1085" y="238" text-anchor="middle" class="label">渲染播放</text><text x="1085" y="267" text-anchor="middle" class="small">同步音频与视频</text>
+  <path d="M190 245 H225 M375 245 H410 M560 245 H600 M790 245 H825 M975 245 H1010" class="flow"/>
+
+  <rect x="585" y="176" width="55" height="138" rx="24" class="network"/>
+  <text x="612" y="223" text-anchor="middle" class="label" transform="rotate(-90 612 223)">网络</text>
+  <text x="612" y="350" text-anchor="middle" class="small">丢包 · 抖动 · 延迟 · 带宽变化</text>
+
+  <rect x="200" y="420" width="220" height="82" rx="14" class="control"/>
+  <text x="310" y="454" text-anchor="middle" class="label">带宽估计与拥塞控制</text>
+  <text x="310" y="483" text-anchor="middle" class="small">调整发送码率和媒体参数</text>
+  <rect x="780" y="420" width="220" height="82" rx="14" class="control"/>
+  <text x="890" y="454" text-anchor="middle" class="label">接收质量统计</text>
+  <text x="890" y="483" text-anchor="middle" class="small">丢包 / 抖动 / RTT 等</text>
+
+  <path d="M1085 292 C1080 390 1040 405 995 420" class="feedback"/>
+  <path d="M780 462 H420" class="feedback"/>
+  <text x="600" y="448" text-anchor="middle" class="label" fill="#7a6aa8">RTCP 与其他传输反馈</text>
+  <text x="600" y="482" text-anchor="middle" class="small">接收报告、丢包指示、拥塞信息</text>
+  <path d="M310 420 C310 360 300 330 300 292" class="feedback"/>
+
+  <text x="600" y="575" text-anchor="middle" class="text">目标：在真实网络约束下，平衡延迟、清晰度、流畅度与抗丢包能力</text>
+  <text x="600" y="610" text-anchor="middle" class="small">媒体质量不是单点指标，而是采集、编码、传输、缓冲和渲染共同作用的结果</text>
+</svg>

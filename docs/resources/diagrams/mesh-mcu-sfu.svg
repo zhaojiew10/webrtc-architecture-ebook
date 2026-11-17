@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Mesh、MCU 与 SFU 多方媒体架构对比</title>
+  <desc id="desc">Mesh 中端点两两互连；MCU 接收各路媒体、解码混合后再编码发送；SFU 不解码混合，而是选择并转发媒体流。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#55708a"/></marker>
+    <style>
+      .panel{fill:#fafcfd;stroke:#c5d1da;stroke-width:2}.node{fill:#fff;stroke:#385170;stroke-width:2}.server{fill:#edf4f3;stroke:#279b83;stroke-width:2.5}.title{font:600 28px 'Segoe UI','Microsoft YaHei',sans-serif;fill:#26344d}.label{font:600 21px 'Segoe UI','Microsoft YaHei',sans-serif;fill:#26344d}.text{font:19px 'Segoe UI','Microsoft YaHei',sans-serif;fill:#43516a}.line{stroke:#55708a;stroke-width:2.2;fill:none;marker-start:url(#arrow);marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1200" height="700" fill="#fff"/>
+  <text x="600" y="46" text-anchor="middle" class="title" font-size="31">多方媒体的三种基本架构</text>
+
+  <rect x="30" y="78" width="360" height="560" rx="18" class="panel"/>
+  <rect x="420" y="78" width="360" height="560" rx="18" class="panel"/>
+  <rect x="810" y="78" width="360" height="560" rx="18" class="panel"/>
+  <text x="210" y="124" text-anchor="middle" class="title">Mesh</text>
+  <text x="600" y="124" text-anchor="middle" class="title">MCU</text>
+  <text x="990" y="124" text-anchor="middle" class="title">SFU</text>
+
+  <!-- Mesh: all six peer-to-peer links -->
+  <path d="M115 235 L305 235 M115 235 L115 440 M115 235 L305 440 M305 235 L115 440 M305 235 L305 440 M115 440 L305 440" class="line"/>
+  <circle cx="115" cy="235" r="45" class="node"/><circle cx="305" cy="235" r="45" class="node"/>
+  <circle cx="115" cy="440" r="45" class="node"/><circle cx="305" cy="440" r="45" class="node"/>
+  <text x="115" y="243" text-anchor="middle" class="label">A</text><text x="305" y="243" text-anchor="middle" class="label">B</text>
+  <text x="115" y="448" text-anchor="middle" class="label">C</text><text x="305" y="448" text-anchor="middle" class="label">D</text>
+  <text x="210" y="530" text-anchor="middle" class="label">端点两两互连</text>
+  <text x="210" y="565" text-anchor="middle" class="text">无需中心媒体服务器</text>
+  <text x="210" y="596" text-anchor="middle" class="text">上行编码与带宽随对端数增长</text>
+
+  <!-- MCU -->
+  <path d="M505 235 L600 335 L695 235 M505 440 L600 335 L695 440" class="line"/>
+  <circle cx="505" cy="235" r="42" class="node"/><circle cx="695" cy="235" r="42" class="node"/>
+  <circle cx="505" cy="440" r="42" class="node"/><circle cx="695" cy="440" r="42" class="node"/>
+  <text x="505" y="243" text-anchor="middle" class="label">A</text><text x="695" y="243" text-anchor="middle" class="label">B</text>
+  <text x="505" y="448" text-anchor="middle" class="label">C</text><text x="695" y="448" text-anchor="middle" class="label">D</text>
+  <rect x="520" y="290" width="160" height="92" rx="16" class="server"/>
+  <text x="600" y="327" text-anchor="middle" class="label">MCU</text>
+  <text x="600" y="359" text-anchor="middle" class="text">混合 / 转码</text>
+  <text x="600" y="530" text-anchor="middle" class="label">服务器合成媒体</text>
+  <text x="600" y="565" text-anchor="middle" class="text">端点可只发送和接收一路</text>
+  <text x="600" y="596" text-anchor="middle" class="text">服务器计算与转码成本高</text>
+
+  <!-- SFU -->
+  <path d="M895 235 L990 335 L1085 235 M895 440 L990 335 L1085 440" class="line"/>
+  <circle cx="895" cy="235" r="42" class="node"/><circle cx="1085" cy="235" r="42" class="node"/>
+  <circle cx="895" cy="440" r="42" class="node"/><circle cx="1085" cy="440" r="42" class="node"/>
+  <text x="895" y="243" text-anchor="middle" class="label">A</text><text x="1085" y="243" text-anchor="middle" class="label">B</text>
+  <text x="895" y="448" text-anchor="middle" class="label">C</text><text x="1085" y="448" text-anchor="middle" class="label">D</text>
+  <rect x="910" y="290" width="160" height="92" rx="16" class="server"/>
+  <text x="990" y="327" text-anchor="middle" class="label">SFU</text>
+  <text x="990" y="359" text-anchor="middle" class="text">选择 / 转发</text>
+  <text x="990" y="530" text-anchor="middle" class="label">服务器路由媒体包</text>
+  <text x="990" y="565" text-anchor="middle" class="text">通常不解码、不混合媒体</text>
+  <text x="990" y="596" text-anchor="middle" class="text">兼顾扩展性与端点灵活性</text>
+</svg>

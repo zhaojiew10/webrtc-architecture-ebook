@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">WebRTC 中的 ICE 连接路径</title>
+  <desc id="desc">两个浏览器通过信令服务器交换 SDP 和 ICE 候选，STUN 帮助发现公网映射地址，ICE 优先尝试点对点媒体路径，失败时通过 TURN 中继。</desc>
+  <defs>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#279b83"/></marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#d97b36"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#718096"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#26344d;stroke-width:2}.server{fill:#eef4f8;stroke:#26344d;stroke-width:2}.nat{fill:#f5f6f8;stroke:#718096;stroke-width:2}.label{font:600 24px 'Segoe UI','Microsoft YaHei',sans-serif;fill:#26344d}.small{font:20px 'Segoe UI','Microsoft YaHei',sans-serif;fill:#43516a}.tiny{font:18px 'Segoe UI','Microsoft YaHei',sans-serif;fill:#526078}.signal{fill:none;stroke:#718096;stroke-width:2.5;stroke-dasharray:8 7;marker-end:url(#arrow-gray)}.direct{fill:none;stroke:#279b83;stroke-width:5;marker-end:url(#arrow-green)}.relay{fill:none;stroke:#d97b36;stroke-width:4;marker-end:url(#arrow-orange)}
+    </style>
+  </defs>
+  <rect width="1200" height="720" fill="#fff"/>
+  <text x="600" y="46" text-anchor="middle" class="label" font-size="30">WebRTC 中的 ICE 连接路径</text>
+
+  <rect x="460" y="82" width="280" height="82" rx="14" class="server"/>
+  <text x="600" y="118" text-anchor="middle" class="label">信令服务器</text>
+  <text x="600" y="148" text-anchor="middle" class="tiny">交换 SDP Offer / Answer 与 ICE 候选</text>
+
+  <rect x="64" y="88" width="220" height="72" rx="14" class="server"/>
+  <text x="174" y="119" text-anchor="middle" class="label">STUN 服务器</text>
+  <text x="174" y="146" text-anchor="middle" class="tiny">发现服务器反射地址</text>
+
+  <rect x="916" y="88" width="220" height="72" rx="14" class="server"/>
+  <text x="1026" y="119" text-anchor="middle" class="label">TURN 服务器</text>
+  <text x="1026" y="146" text-anchor="middle" class="tiny">必要时提供媒体中继</text>
+
+  <path d="M230 318 C270 220 370 175 475 145" class="signal"/>
+  <path d="M970 318 C930 220 830 175 725 145" class="signal"/>
+  <path d="M215 310 C205 250 192 210 180 166" class="signal"/>
+  <path d="M985 310 C995 250 1008 210 1020 166" class="signal"/>
+
+  <rect x="54" y="310" width="240" height="142" rx="18" class="box"/>
+  <text x="174" y="354" text-anchor="middle" class="label">浏览器 A</text>
+  <text x="174" y="390" text-anchor="middle" class="small">收集 host / srflx / relay</text>
+  <text x="174" y="423" text-anchor="middle" class="small">候选并进行连通性检查</text>
+
+  <rect x="906" y="310" width="240" height="142" rx="18" class="box"/>
+  <text x="1026" y="354" text-anchor="middle" class="label">浏览器 B</text>
+  <text x="1026" y="390" text-anchor="middle" class="small">收集 host / srflx / relay</text>
+  <text x="1026" y="423" text-anchor="middle" class="small">候选并进行连通性检查</text>
+
+  <rect x="340" y="330" width="150" height="102" rx="14" class="nat"/>
+  <text x="415" y="372" text-anchor="middle" class="label">NAT /</text>
+  <text x="415" y="404" text-anchor="middle" class="label">防火墙</text>
+  <rect x="710" y="330" width="150" height="102" rx="14" class="nat"/>
+  <text x="785" y="372" text-anchor="middle" class="label">NAT /</text>
+  <text x="785" y="404" text-anchor="middle" class="label">防火墙</text>
+
+  <path d="M294 500 C420 548 780 548 906 500" class="direct"/>
+  <text x="600" y="552" text-anchor="middle" class="label" fill="#279b83">优先：点对点加密媒体路径</text>
+  <text x="600" y="584" text-anchor="middle" class="small">主机候选 → 服务器反射候选 → 中继候选</text>
+
+  <path d="M294 296 C500 218 805 218 916 184" class="relay"/>
+  <path d="M1136 124 C1170 240 1148 270 1104 302" class="relay"/>
+  <text x="690" y="222" text-anchor="middle" class="small" fill="#d97b36">回退：经 TURN 中继媒体</text>
+
+  <line x1="70" y1="650" x2="150" y2="650" class="signal"/>
+  <text x="166" y="657" class="tiny">信令 / 地址发现</text>
+  <line x1="440" y1="650" x2="520" y2="650" class="direct"/>
+  <text x="536" y="657" class="tiny">直接媒体</text>
+  <line x1="770" y1="650" x2="850" y2="650" class="relay"/>
+  <text x="866" y="657" class="tiny">中继媒体</text>
+</svg>

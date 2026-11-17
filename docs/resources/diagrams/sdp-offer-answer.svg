@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">WebRTC SDP Offer Answer 与 ICE 协商流程</title>
+  <desc id="desc">浏览器 A 创建 Offer，经应用信令通道发送给浏览器 B；B 返回 Answer。双方同时交换 ICE 候选并执行连通性检查，最后建立加密媒体通道。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#385170"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#279b83"/></marker>
+    <style>
+      .label{font:600 25px 'Segoe UI','Microsoft YaHei',sans-serif;fill:#26344d}.text{font:21px 'Segoe UI','Microsoft YaHei',sans-serif;fill:#35445e}.small{font:18px 'Segoe UI','Microsoft YaHei',sans-serif;fill:#526078}.lane{stroke:#b7c1cf;stroke-width:2;stroke-dasharray:7 8}.msg{stroke:#385170;stroke-width:2.5;fill:none;marker-end:url(#arrow)}.ice{stroke:#7a6aa8;stroke-width:2.5;stroke-dasharray:8 6;fill:none;marker-end:url(#arrow)}.media{stroke:#279b83;stroke-width:6;fill:none;marker-end:url(#arrow-green)}.tag{fill:#eef3f7;stroke:#9eacbd;stroke-width:1.5}
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#fff"/>
+  <text x="600" y="48" text-anchor="middle" class="label" font-size="30">SDP Offer / Answer 与 ICE 协商</text>
+  <rect x="120" y="80" width="250" height="66" rx="16" class="tag"/>
+  <rect x="830" y="80" width="250" height="66" rx="16" class="tag"/>
+  <text x="245" y="122" text-anchor="middle" class="label">浏览器 A（呼叫方）</text>
+  <text x="955" y="122" text-anchor="middle" class="label">浏览器 B（被叫方）</text>
+  <line x1="245" y1="150" x2="245" y2="690" class="lane"/>
+  <line x1="955" y1="150" x2="955" y2="690" class="lane"/>
+
+  <rect x="40" y="176" width="410" height="56" rx="10" class="tag"/>
+  <text x="245" y="211" text-anchor="middle" class="text">createOffer() → setLocalDescription()</text>
+  <path d="M265 258 H930" class="msg"/>
+  <text x="600" y="246" text-anchor="middle" class="text">SDP Offer：媒体能力、编解码器、传输参数</text>
+  <text x="600" y="282" text-anchor="middle" class="small">通过应用自选的信令通道传输</text>
+
+  <rect x="745" y="310" width="420" height="56" rx="10" class="tag"/>
+  <text x="955" y="345" text-anchor="middle" class="text">setRemoteDescription() → createAnswer()</text>
+  <rect x="765" y="378" width="380" height="52" rx="10" class="tag"/>
+  <text x="955" y="411" text-anchor="middle" class="text">setLocalDescription(answer)</text>
+
+  <path d="M935 462 H270" class="msg"/>
+  <text x="600" y="450" text-anchor="middle" class="text">SDP Answer：确认双方可使用的会话参数</text>
+  <rect x="60" y="490" width="370" height="54" rx="10" class="tag"/>
+  <text x="245" y="524" text-anchor="middle" class="text">setRemoteDescription(answer)</text>
+
+  <path d="M265 575 H930" class="ice"/>
+  <path d="M935 610 H270" class="ice"/>
+  <text x="600" y="564" text-anchor="middle" class="text" fill="#7a6aa8">Trickle ICE：持续交换新候选</text>
+  <text x="600" y="638" text-anchor="middle" class="small">双方对候选对进行连通性检查，并按优先级选择路径</text>
+
+  <path d="M270 686 H930" class="media"/>
+  <text x="600" y="720" text-anchor="middle" class="label" fill="#279b83">建立加密媒体 / 数据通道</text>
+</svg>

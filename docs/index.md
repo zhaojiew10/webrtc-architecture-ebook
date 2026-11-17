@@ -1,0 +1,129 @@
+---
+title: "高级 WebRTC 架构：从原理到实践"
+---
+
+# 高级 WebRTC 架构：从原理到实践
+
+本书根据 **Advanced WebRTC Architecture** 课程的中英文字幕整理，从 WebRTC 基础、网络与信令出发，逐步介绍编解码器、媒体服务器、设计模式、标准化、服务器部署、测试监控与实战专题。全书共 **11 个部分、76 章**。
+
+正文不是逐句拼接的字幕，而是按主题重组的中文学习材料：删除重复寒暄和口头衔接，保留技术论点、分析步骤、方案对比与注意事项，并参照英文字幕校正常见术语。
+
+!!! note "阅读说明"
+    本书依据字幕整理，配图包括从课程视频抽取的关键幻灯片及自绘 SVG 示意图。正文仍尽量保持脱离视频也可阅读；涉及产品支持情况和标准进展的内容具有时效性，实际使用时请结合最新官方文档。
+
+## 推荐阅读路径
+
+- **系统学习**：从第 1 章开始按顺序阅读，建立完整的 WebRTC 架构知识路径。
+- **关注媒体与架构**：先读第 24—42 章，再根据场景阅读第 51—58 章。
+- **关注开发与选型**：重点阅读第 43—50 章以及第 60—61 章。
+- **关注部署与质量**：重点阅读第 49 章、第 64—76 章。
+
+
+## 第 1 部分 · WebRTC 基础
+
+- [第 1 章 课程介绍](chapters/ch01.md)
+- [第 2 章 什么是 WebRTC](chapters/ch02.md)
+- [第 3 章 浏览器与设备支持](chapters/ch03.md)
+- [第 4 章 WebRTC API 概览](chapters/ch04.md)
+- [第 5 章 学习资源](chapters/ch05.md)
+- [第 6 章 模块一小结](chapters/ch06.md)
+
+## 第 2 部分 · 网络与传输基础
+
+- [第 7 章 网络基础](chapters/ch07.md)
+- [第 8 章 TCP 与 UDP](chapters/ch08.md)
+- [第 9 章 HTTP](chapters/ch09.md)
+- [第 10 章 WebSocket](chapters/ch10.md)
+- [第 11 章 NAT 穿透](chapters/ch11.md)
+- [第 12 章 VoIP 的三个层次](chapters/ch12.md)
+- [第 13 章 媒体质量指标](chapters/ch13.md)
+- [第 14 章 WebTransport](chapters/ch14.md)
+- [第 15 章 模块二小结](chapters/ch15.md)
+
+## 第 3 部分 · 信令、SDP 与安全
+
+- [第 16 章 WebRTC 信令](chapters/ch16.md)
+- [第 17 章 WebRTC 中的传输协议](chapters/ch17.md)
+- [第 18 章 WebRTC 中的信令协议](chapters/ch18.md)
+- [第 19 章 实时 Web 与 XMPP](chapters/ch19.md)
+- [第 20 章 SDP](chapters/ch20.md)
+- [第 21 章 WebRTC 安全](chapters/ch21.md)
+- [第 22 章 屏幕共享](chapters/ch22.md)
+- [第 23 章 模块三小结](chapters/ch23.md)
+
+## 第 4 部分 · 编解码器与数字媒体
+
+- [第 24 章 编解码器概述](chapters/ch24.md)
+- [第 25 章 极客数字媒体入门](chapters/ch25.md)
+- [第 26 章 语音编解码器基础](chapters/ch26.md)
+- [第 27 章 Opus](chapters/ch27.md)
+- [第 28 章 其他语音编解码器与 WebRTC](chapters/ch28.md)
+- [第 29 章 视频编解码器基础](chapters/ch29.md)
+- [第 30 章 VP8 与 H.264](chapters/ch30.md)
+- [第 31 章 VP9 与 HEVC](chapters/ch31.md)
+- [第 32 章 AV1](chapters/ch32.md)
+- [第 33 章 模块四小结](chapters/ch33.md)
+
+## 第 5 部分 · 媒体处理与架构
+
+- [第 34 章 媒体处理概述](chapters/ch34.md)
+- [第 35 章 RTP 与 RTCP](chapters/ch35.md)
+- [第 36 章 带宽估计](chapters/ch36.md)
+- [第 37 章 Mesh 架构](chapters/ch37.md)
+- [第 38 章 混音与 MCU](chapters/ch38.md)
+- [第 39 章 路由与 SFU](chapters/ch39.md)
+- [第 40 章 录制](chapters/ch40.md)
+- [第 41 章 媒体处理中的人工智能](chapters/ch41.md)
+- [第 42 章 模块五小结](chapters/ch42.md)
+
+## 第 6 部分 · 框架、服务与开发策略
+
+- [第 43 章 第三方框架与服务](chapters/ch43.md)
+- [第 44 章 WebRTC 开发策略](chapters/ch44.md)
+- [第 45 章 信令替代方案](chapters/ch45.md)
+- [第 46 章 媒体服务器替代方案](chapters/ch46.md)
+- [第 47 章 WebRTC PaaS](chapters/ch47.md)
+- [第 48 章 VoIP 框架](chapters/ch48.md)
+- [第 49 章 测试与监控](chapters/ch49.md)
+- [第 50 章 模块六小结](chapters/ch50.md)
+
+## 第 7 部分 · WebRTC 设计模式
+
+- [第 51 章 常见 WebRTC 设计模式](chapters/ch51.md)
+- [第 52 章 WebRTC 中的媒体流](chapters/ch52.md)
+- [第 53 章 会议录制器](chapters/ch53.md)
+- [第 54 章 多方会议](chapters/ch54.md)
+- [第 55 章 网络研讨会：低延迟直播](chapters/ch55.md)
+- [第 56 章 PSTN 连接](chapters/ch56.md)
+- [第 57 章 优化大型群组通话](chapters/ch57.md)
+- [第 58 章 大型会话中的用户分配](chapters/ch58.md)
+- [第 59 章 课程总结](chapters/ch59.md)
+
+## 第 8 部分 · 标准化与需求设计
+
+- [第 60 章 WebRTC 标准化](chapters/ch60.md)
+- [第 61 章 编写 WebRTC RFP 需求](chapters/ch61.md)
+
+## 第 9 部分 · 机器学习与媒体算法
+
+- [第 62 章 机器学习基础](chapters/ch62.md)
+- [第 63 章 媒体算法](chapters/ch63.md)
+
+## 第 10 部分 · 服务器端部署与故障排查
+
+- [第 64 章 WebRTC 服务器端基础：部署内容](chapters/ch64.md)
+- [第 65 章 WebRTC 服务器端基础：服务器规格](chapters/ch65.md)
+- [第 66 章 WebRTC 服务器端基础：实用工具](chapters/ch66.md)
+- [第 67 章 连接 WebRTC 会话为何困难](chapters/ch67.md)
+- [第 68 章 理解问题后再修复](chapters/ch68.md)
+- [第 69 章 选择连接路径](chapters/ch69.md)
+
+## 第 11 部分 · WebRTC 1.0、测试工具与实战
+
+- [第 70 章 WebRTC 1.0](chapters/ch70.md)
+- [第 71 章 testRTC 概览](chapters/ch71.md)
+- [第 72 章 testingRTC 简介](chapters/ch72.md)
+- [第 73 章 watchRTC 简介](chapters/ch73.md)
+- [第 74 章 qualityRTC 简介](chapters/ch74.md)
+- [第 75 章 WebRTC 视频质量](chapters/ch75.md)
+- [第 76 章 在 AWS 上部署（co）TURN](chapters/ch76.md)
