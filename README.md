@@ -4,6 +4,10 @@
 
 正文使用 Markdown 编写，通过 MkDocs Material 提供分组目录、站内搜索和代码高亮。书中包含精选课程幻灯片及中文 SVG 示意图。
 
+## 在线阅读
+
+**[https://zhaojiew10.github.io/webrtc-architecture-ebook/](https://zhaojiew10.github.io/webrtc-architecture-ebook/)**
+
 ## 本地预览
 
 ### Windows（PowerShell）
